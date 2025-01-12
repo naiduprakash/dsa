@@ -5,7 +5,7 @@ class Node {
   }
 }
 
-class LinkedList {
+class LinkedListCircular {
 
   head;
   tail;
@@ -16,7 +16,7 @@ class LinkedList {
     this.tail = null;
     this.length = 0;
 
-    for(const element of elements){
+    for (const element of elements) {
       this.append(element);
     }
   }
@@ -26,18 +26,25 @@ class LinkedList {
     if (this.head === null) {
       this.head = newNode;
       this.tail = newNode;
+      newNode.next = this.head;
     } else {
       this.tail.next = newNode;
       this.tail = newNode;
+      this.tail.next = this.head;
     }
     this.length++;
   }
 
   prepend(element) {
-    const newNode = new Node(element, this.head);
-    this.head = newNode;
-    if (this.tail === null) {
+    const newNode = new Node(element);
+    if (this.head === null) {
+      this.head = newNode;
       this.tail = newNode;
+      newNode.next = this.head;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
+      this.tail.next = this.head;
     }
     this.length++;
   }
@@ -90,9 +97,12 @@ class LinkedList {
     let deletedValue;
     if (index === 0) {
       deletedValue = this.head.value;
-      this.head = this.head.next;
       if (this.length === 1) {
+        this.head = null;
         this.tail = null;
+      } else {
+        this.head = this.head.next;
+        this.tail.next = this.head;
       }
     } else {
       let prevNode = this.head;
@@ -112,11 +122,13 @@ class LinkedList {
 
   [Symbol.iterator]() {
     let current = this.head;
+    let count = 0;
     return {
-      next() {
-        if (current) {
+      next: () => {
+        if (count < this.length) {
           const value = current.value;
           current = current.next;
+          count++;
           return { value, done: false };
         }
         return { done: true };
@@ -125,9 +137,9 @@ class LinkedList {
   }
 }
 
-export default LinkedList;
+export default LinkedListCircular;
 
-// const list = new LinkedList(10,20);
+// const list = new LinkedListCircular(10, 20);
 
 // list.append(30);
 // list.append(40);
