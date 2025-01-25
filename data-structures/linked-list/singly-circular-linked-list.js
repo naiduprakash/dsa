@@ -14,12 +14,12 @@ class SinglyCircularLinkedList {
 
   insert(index, value) {
     if (index < 0 || index > this.size) {
-      throw new Error("index out of bound");
+      throw new Error('index out of bound');
     }
 
     const newNode = new Node(value);
 
-    if (this.head == null) {
+    if (this.head === null) {
       newNode.next = newNode;
       this.head = newNode;
     }
@@ -45,15 +45,15 @@ class SinglyCircularLinkedList {
     this.size++;
   }
   insertAtEnd(value) {
-    this.insert(this.size, value)
+    this.insert(this.size, value);
   }
   insertAtStart(value) {
-    this.insert(0, value)
+    this.insert(0, value);
   }
 
   update(index, value) {
     if (index < 0 || index > this.size) {
-      throw new Error("index out of bound");
+      throw new Error('index out of bound');
     }
     let currentNode = this.head;
     for (let i = 0; i < index; i++) {
@@ -64,11 +64,11 @@ class SinglyCircularLinkedList {
 
   delete(index) {
     if (index < 0 || index > this.size) {
-      throw new Error("index out of bound");
+      throw new Error('index out of bound');
     }
 
     if (this.size === 1) {
-      this.head = null
+      this.head = null;
     }
     else if (index === 0) {
       let currentNode = this.head;
@@ -76,8 +76,8 @@ class SinglyCircularLinkedList {
       while (currentNode.next !== this.head) {
         currentNode = currentNode.next;
       }
-      currentNode.next = this.head.next
-      this.head = this.head.next
+      currentNode.next = this.head.next;
+      this.head = this.head.next;
     } else {
       let currentNode = this.head;
 
@@ -94,7 +94,7 @@ class SinglyCircularLinkedList {
     this.delete(this.size);
   }
   deleteAtStart() {
-    this.delete(0)
+    this.delete(0);
   }
 
 
@@ -114,7 +114,7 @@ class SinglyCircularLinkedList {
 
   reverse() {
     let currentNode = this.head;
-    let lastNode = this.head;
+    const lastNode = this.head;
 
     let prevNode = null;
     let nextNode = null;
@@ -132,7 +132,7 @@ class SinglyCircularLinkedList {
 
   print() {
 
-    let result = [];
+    const result = [];
     let currentNode = this.head;
     do {
       result.push(currentNode.value);
@@ -140,7 +140,7 @@ class SinglyCircularLinkedList {
     }
     while (currentNode !== this.head);
 
-    console.log(result.join("->"));
+    console.log(result.join('->'));
   }
 
   [Symbol.iterator]() {
@@ -160,22 +160,23 @@ class SinglyCircularLinkedList {
   }
 }
 
+export default SinglyCircularLinkedList;
 
 // Example Usage
-const list = new SinglyCircularLinkedList();
-list.insertAtStart(10);
-list.insertAtEnd(20);
-list.insert(1, 15);
-list.insert(2, 18);
-list.print(); // Output: 10 -> 15 -> 18 -> 20
-list.update(1, 25);
-list.print(); // Output: 10 -> 25 -> 18 -> 20
-list.deleteAtStart();
-list.print(); // Output: 25 -> 18 -> 20
-list.deleteAtEnd();
-list.print(); // Output: 25 -> 18
-list.reverse();
-list.print(); // Output: 18 -> 25
-console.log("Node with value 18 :: ", list.find((node, index) => node.value === 18))
-console.log("Node at index 1 :: ", list.find((node, index) => index === 1));
-console.log(...list)
+// const list = new SinglyCircularLinkedList();
+// list.insertAtStart(10);
+// list.insertAtEnd(20);
+// list.insert(1, 15);
+// list.insert(2, 18);
+// list.print(); // Output: 10 -> 15 -> 18 -> 20
+// list.update(1, 25);
+// list.print(); // Output: 10 -> 25 -> 18 -> 20
+// list.deleteAtStart();
+// list.print(); // Output: 25 -> 18 -> 20
+// list.deleteAtEnd();
+// list.print(); // Output: 25 -> 18
+// list.reverse();
+// list.print(); // Output: 18 -> 25
+// console.log('Node with value 18 :: ', list.find((node) => node.value === 18));
+// console.log('Node at index 1 :: ', list.find((_, index) => index === 1));
+// console.log(...list);

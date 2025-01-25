@@ -14,13 +14,13 @@ class SinglyLinkedList {
 
   insert(index, value) {
     if (index < 0 || index > this.size) {
-      throw new Error("index out of bound");
+      throw new Error('index out of bound');
     }
 
     const newNode = new Node(value);
 
     if (index === 0) {
-      this.head = newNode
+      this.head = newNode;
     } else {
       let currentNode = this.head;
       let prevNode = null;
@@ -33,16 +33,17 @@ class SinglyLinkedList {
     }
     this.size++;
   }
+
   insertAtEnd(value) {
-    this.insert(this.size, value)
+    this.insert(this.size, value);
   }
   insertAtStart(value) {
-    this.insert(0, value)
+    this.insert(0, value);
   }
 
   update(index, value) {
     if (index < 0 || index > this.size) {
-      throw new Error("index out of bound");
+      throw new Error('index out of bound');
     }
     let currentNode = this.head;
     for (let i = 0; i < index; i++) {
@@ -53,7 +54,7 @@ class SinglyLinkedList {
 
   delete(index) {
     if (index < 0 || index > this.size) {
-      throw new Error("index out of bound");
+      throw new Error('index out of bound');
     }
 
     let currentNode = this.head;
@@ -73,27 +74,27 @@ class SinglyLinkedList {
     this.delete(this.size);
   }
   deleteAtStart() {
-    this.delete(0)
+    this.delete(0);
   }
 
-  find(cb) { 
+  find(cb) {
     let currentNode = this.head;
     let index = 0;
-    while(currentNode){
-      if(cb(currentNode,index) === true){
+    while (currentNode) {
+      if (cb(currentNode, index) === true) {
         return currentNode.value;
       }
       currentNode = currentNode.next;
-      index++
+      index++;
     }
-    return null
+    return null;
   }
 
-  reverse() { 
+  reverse() {
     let currentNode = this.head;
     let prevNode = null;
     let nextNode = null;
-    while(currentNode){
+    while (currentNode) {
       nextNode = currentNode.next;
       currentNode.next = prevNode;
       prevNode = currentNode;
@@ -104,13 +105,14 @@ class SinglyLinkedList {
 
   print() {
     let currentNode = this.head;
-    let result = [];
+    const result = [];
     while (currentNode) {
       result.push(currentNode.value);
       currentNode = currentNode.next;
     }
-    console.log(result.join("->"));
+    console.log(result.join('->'));
   }
+
   [Symbol.iterator]() {
     let current = this.head;
     return {
@@ -126,22 +128,23 @@ class SinglyLinkedList {
   }
 }
 
+export default SinglyLinkedList;
 
 // Example Usage
-const list = new SinglyLinkedList();
-list.insertAtStart(10);
-list.insertAtEnd(20);
-list.insert(1, 15);
-list.insert(2, 18);
-list.print(); // Output: 10 -> 15 -> 18 -> 20
-list.update(1, 25);
-list.print(); // Output: 10 -> 25 -> 18 -> 20
-list.deleteAtStart();
-list.print(); // Output: 25 -> 18 -> 20
-list.deleteAtEnd();
-list.print(); // Output: 25 -> 18
-list.reverse();
-list.print(); // Output: 18 -> 25
-console.log("Node with value 18 :: ", list.find((node, index) => node.value === 18))
-console.log("Node at index 1 :: ", list.find((node, index) => index === 1));
-console.log(...list)
+// const list = new SinglyLinkedList();
+// list.insertAtStart(10);
+// list.insertAtEnd(20);
+// list.insert(1, 15);
+// list.insert(2, 18);
+// list.print(); // Output: 10 -> 15 -> 18 -> 20
+// list.update(1, 25);
+// list.print(); // Output: 10 -> 25 -> 18 -> 20
+// list.deleteAtStart();
+// list.print(); // Output: 25 -> 18 -> 20
+// list.deleteAtEnd();
+// list.print(); // Output: 25 -> 18
+// list.reverse();
+// list.print(); // Output: 18 -> 25
+// console.log('Node with value 18 :: ', list.find((node) => node.value === 18));
+// console.log('Node at index 1 :: ', list.find((_, index) => index === 1));
+// console.log(...list);

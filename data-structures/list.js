@@ -19,9 +19,9 @@ class List {
   }
 
   pop() {
-    if (this.length === 0) return undefined;
+    if (this.length === 0) { return undefined; }
 
-    let removedEle = this.data[this.length - 1];
+    const removedEle = this.data[this.length - 1];
     delete this.data[this.length - 1];
     this.length--;
 
@@ -30,21 +30,21 @@ class List {
 
   get(index) {
     if (index < 0 || index >= this.length) {
-      throw new RangeError("Index out of bound");
+      throw new RangeError('Index out of bound');
     }
     return this.data[index];
   }
 
   update(index, element) {
     if (index < 0 || index >= this.length) {
-      throw new RangeError("Index out of bound");
+      throw new RangeError('Index out of bound');
     }
     this.data[index] = element;
   }
 
   insert(index, element) {
     if (index < 0 || index > this.length) {
-      throw new RangeError("Index out of bound");
+      throw new RangeError('Index out of bound');
     }
 
     for (let i = this.length; i > index; i--) {
@@ -58,10 +58,10 @@ class List {
 
   delete(index) {
     if (index < 0 || index >= this.length) {
-      throw new RangeError("Index out of bound");
+      throw new RangeError('Index out of bound');
     }
 
-    let removedEle = this.data[index];
+    const removedEle = this.data[index];
 
     for (let i = index; i < this.length - 1; i++) {
       this.data[i] = this.data[i + 1];
