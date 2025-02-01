@@ -129,22 +129,3 @@ class SinglyLinkedList {
 }
 
 export default SinglyLinkedList;
-
-// Example Usage
-// const list = new SinglyLinkedList();
-// list.insertAtStart(10);
-// list.insertAtEnd(20);
-// list.insert(1, 15);
-// list.insert(2, 18);
-// list.print(); // Output: 10 -> 15 -> 18 -> 20
-// list.update(1, 25);
-// list.print(); // Output: 10 -> 25 -> 18 -> 20
-// list.deleteAtStart();
-// list.print(); // Output: 25 -> 18 -> 20
-// list.deleteAtEnd();
-// list.print(); // Output: 25 -> 18
-// list.reverse();
-// list.print(); // Output: 18 -> 25
-// console.log('Node with value 18 :: ', list.find((node) => node.value === 18));
-// console.log('Node at index 1 :: ', list.find((_, index) => index === 1));
-// console.log(...list);

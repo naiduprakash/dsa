@@ -204,23 +204,3 @@ class DoublyCircularLinkedList {
 }
 
 export default DoublyCircularLinkedList;
-
-// const list = new DoublyCircularLinkedList();
-// list.insertAtStart(10);
-// list.insertAtStart(20);
-// list.insertAtStart(30);
-// list.insertAtStart(40);
-// list.insertAtStart(50);
-// list.print();
-// list.reverse();
-// list.print();
-// list.deleteFromStart();
-// list.deleteFromEnd();
-// list.delete(1);
-// list.print();
-
-// const Node20 = list.find((value) => value === 20);
-// console.log(Node20);
-
-// const nodeAtIndex1 = list.find((_, index) => index === 1);
-// console.log(nodeAtIndex1);

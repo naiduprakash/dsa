@@ -179,36 +179,3 @@ class DoublyLinkedList {
 }
 
 export default DoublyLinkedList;
-
-// const list = new DoublyLinkedList();
-// list.insertAtStart(10);
-// list.insertAtStart(20);
-// list.insertAtStart(30);
-// list.insertAtStart(40);
-// list.insertAtStart(50);
-// list.print();
-// list.reverse();
-// list.print();
-
-// const Node20 = list.find((node) => node.value === 20);
-// console.log(Node20);
-
-// const nodeAtIndex2 = list.find((_, index) => index === 2);
-// console.log(nodeAtIndex2);
-
-
-// const list2 = new DoublyLinkedList();
-// list2.insertAtEnd(10);
-// list2.insertAtEnd(20);
-// list2.insertAtEnd(30);
-// list2.insertAtEnd(40);
-// list2.insertAtEnd(50);
-// list2.print();
-
-// const list3 = new DoublyLinkedList();
-// list3.insertAtStart(10);
-// list3.insertAtEnd(50);
-// list3.insert(1, 20);
-// list3.insert(2, 30);
-// list3.insert(3, 40);
-// list3.print();
