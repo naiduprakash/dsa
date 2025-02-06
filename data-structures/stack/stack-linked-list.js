@@ -8,22 +8,21 @@ class Node {
 class StackLinkedList {
   constructor() {
     this.top = null;
-    this.length = 0;
+    this.size = 0;
   }
 
   push(value) {
     const newNode = new Node(value);
     newNode.next = this.top;
     this.top = newNode;
-    this.length++;
+    this.size++;
   }
 
   pop() {
     if (!this.top) { return null; }
-
     const top = this.top;
     this.top = this.top.next;
-    this.length--;
+    this.size--;
     return top.value;
   }
 
@@ -33,18 +32,15 @@ class StackLinkedList {
 
   clear() {
     this.top = null;
-    this.length = 0;
-  }
-
-  size() {
-    return this.length;
+    this.size = 0;
   }
 
   isEmpty() {
-    return this.length === 0;
+    return this.size === 0;
   }
 
-  _print() {
+  print() {
+
     let currentNode = this.top;
     let output = 'Top -> ';
     while (currentNode) {
@@ -52,7 +48,7 @@ class StackLinkedList {
       currentNode = currentNode.next;
     }
     output += 'null';
-    console.log(output);
+    console.log(output, ' this.size::', this.size);
   }
 }
 

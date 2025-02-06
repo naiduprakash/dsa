@@ -1,4 +1,4 @@
-class QueueArray {
+class Queue {
   constructor(capacity) {
     this.capacity = capacity;
     this.data = new Array(capacity).fill(null);
@@ -61,9 +61,9 @@ class QueueArray {
   }
 }
 
-export default QueueArray;
+export default Queue;
 
-// const queue = new QueueArray(5);
+// const queue = new Queue(5);
 // queue.enqueue(10);
 // queue.enqueue(20);
 // queue.enqueue(30);
